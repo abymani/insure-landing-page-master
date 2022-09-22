@@ -1,0 +1,113 @@
+
+    /* navigational menu styling */
+    nav {
+        /* z-index: 10000; */
+    }
+        .menu {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .menu li{
+            display: inline-block;
+        }
+        .menu li:last-child a{
+            
+            border: 2px solid hsl(256, 26%, 20%);
+            padding: 0.5rem 1rem;
+        }
+       
+        .menu li:last-child a:hover{
+            background-color:hsl(256, 26%, 20%);
+            color: hsl(0, 0%, 98%); 
+            cursor: pointer;
+        }
+        .menu li a {
+            text-decoration: none;
+            color: hsl(273, 4%, 51%);
+            text-transform: uppercase;
+            font-family: var(--ff-karla);
+            font-weight: var(--fw-regular);
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+        .menu li a:hover {
+            color: hsl(270, 9%, 17%);
+        }
+
+        /* mobile navigation */
+.menu-btn {
+    display: none;
+    width: 2rem;
+    aspect-ratio: 1;
+    background-color: transparent;
+    border: 0;
+    background-image: url(../images/icon-hamburger.svg);
+    background-repeat: no-repeat;
+}
+.menu-btn[data-visibilty = "true"] {
+    background-image: url(../images/icon-close.svg);
+}
+
+@media screen and (max-width:500px) {
+
+    /* mobile navigation */
+    body[data-nav-menu="true"] {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+    nav{
+        width: 100%;
+        height: calc(100vh - 6rem);
+        display: none;
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        background-color: hsl(270, 9%, 17%);
+        background-image: url(../images/bg-pattern-mobile-nav.svg);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: contain;
+        padding: 1rem;
+        border-radius: 3px;
+        color: hsl(0, 0%, 98%);
+        z-index: 1000;
+
+    }
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        padding-top: 3rem;
+     }
+    
+     .menu li {
+        width:100%;
+        text-align: center;
+     }
+     .menu li:last-child {
+        padding: 0.5rem 1rem;
+        margin-left: 0;
+        border: 2px solid white;
+     }
+    .menu li:last-child:hover{
+         background-color: white;
+         color: hsl(270, 9%, 17%);
+         text-decoration: none;
+         cursor: pointer;
+        }
+        .menu li:last-child a:hover{
+            text-decoration: none;
+            color: hsl(270, 9%, 17%);
+        }
+        .menu li a {
+            font-size: 1.4rem;
+        }
+    .menu-btn {
+        display: block;
+    }
+    nav[aria-expanded = "true"] {
+        display: block;
+    }
+}
